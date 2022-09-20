@@ -26,17 +26,43 @@ function render(variables = {}) {
   console.log("These are the current variables: ", variables); //print on the console
   // here we ask the logical questions to make decisions on how to build the html
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
+  let name = `<div class="name">${variables.name}</div>`;
+  let lastName = `<div class="lastName">${variables.lastname}</div>`;
+  let role = `<div class="role">${variables.role}</div>`;
+  let country = `<div class="country">${variables.country}</div>`;
+  let city = `<div class="city">${variables.city}</div>`;
+  let position = variables.socialMediaPosition;
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
+
+  if (!variables.name || variables.name == " ") {
+    name = `<div class="name">John</div>`;
+  }
+
+  if (!variables.lastname || variables.lastname == " ") {
+    lastName = `<div class="lastName">Smith</div>`;
+  }
+
+  if (!variables.role || variables.role == " ") {
+    role = `<div class="role">Web Developer</div>`;
+  }
+
+  if (!variables.country || variables.country == " ") {
+    country = `<div class="country">USA</div>`;
+  }
+
+  if (!variables.city || variables.city == " ") {
+    city = `<div class="city">Ohio</div>`;
+  }
 
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
+          <h1>${name} ${lastName}</h1>
+          <h2>${role}</h2>
+          <h3>${country}, ${city}</h3>
+          <ul class="${variables.socialMediaPosition}">
             <li><a href="https://twitter.com/4geeksacademy"><i class="fab fa-twitter"></i></a></li>
             <li><a href="https://github.com/4geeksacademy"><i class="fab fa-github"></i></a></li>
             <li><a href="https://linkedin.com/4geeksacademy"><i class="fab fa-linkedin"></i></a></li>
