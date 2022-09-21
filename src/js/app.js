@@ -31,7 +31,7 @@ function render(variables = {}) {
   let role = `<div class="role">${variables.role}</div>`;
   let country = `<div class="country">${variables.country}</div>`;
   let city = `<div class="city">${variables.city}</div>`;
-  let position = variables.socialMediaPosition;
+
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
@@ -63,10 +63,10 @@ function render(variables = {}) {
           <h2>${role}</h2>
           <h3>${country}, ${city}</h3>
           <ul class="${variables.socialMediaPosition}">
-            <li><a href="https://twitter.com/jul1524"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/jul1998"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/juli%C3%A1n-guevara-167a70156/"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://www.instagram.com/julian.andres444/"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://twitter.com/${variables.twitter}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${variables.github}"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/${variables.linkedin}/"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.instagram.com/${variables.instagram}/"><i class="fab fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
